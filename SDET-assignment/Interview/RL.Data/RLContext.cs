@@ -9,6 +9,7 @@ public class RLContext : DbContext
     public DbSet<PlanProcedure> PlanProcedures { get; set; }
     public DbSet<Procedure> Procedures { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<PlanProcedureUser> PlanProcedureUser { get; set; }
 
     public RLContext() { }
     public RLContext(DbContextOptions<RLContext> options) : base(options) { }
@@ -22,6 +23,19 @@ public class RLContext : DbContext
             typeBuilder.HasKey(pp => new { pp.PlanId, pp.ProcedureId });
             typeBuilder.HasOne(pp => pp.Plan).WithMany(p => p.PlanProcedures);
             typeBuilder.HasOne(pp => pp.Procedure).WithMany();
+        });
+
+        builder.Entity<PlanProcedureUser>(typeBuilder =>
+        {
+            typeBuilder.HasKey(ppu => new { ppu.PlanProcedureUsersUserId, ppu.UserPlanProceduresPlanId, ppu.UserPlanProceduresProcedureId });
+
+            typeBuilder.HasOne(ppu => ppu.User)
+                .WithMany(u => u.PlanProcedureUsers)
+                .HasForeignKey(ppu => ppu.PlanProcedureUsersUserId);
+
+            typeBuilder.HasOne(ppu => ppu.PlanProcedure)
+                .WithMany(pp => pp.PlanProcedureUsers)
+                .HasForeignKey(ppu => new { ppu.UserPlanProceduresPlanId, ppu.UserPlanProceduresProcedureId });
         });
 
         //Add procedure Seed Data
@@ -40,31 +54,31 @@ public class RLContext : DbContext
         builder.Entity<User>(u =>
         {
             u.HasData(new List<User> {
-                new User {
-                    UserId = 1,
-                    Name = "Nick Morrison",
-                    CreateDate = new DateTime(1999,12,13),
-                    UpdateDate = new DateTime(1999,12,13)
-                },
-                new User {
-                    UserId = 2,
-                    Name = "Scott Cassidy",
-                    CreateDate = new DateTime(1999,12,13),
-                    UpdateDate = new DateTime(1999,12,13)
-                },
-                new User {
-                    UserId = 3,
-                    Name = "Tony Bidner",
-                    CreateDate = new DateTime(1999,12,13),
-                    UpdateDate = new DateTime(1999,12,13)
-                },
-                new User {
-                    UserId = 4,
-                    Name = "Patryk Skwarko",
-                    CreateDate = new DateTime(1999,12,13),
-                    UpdateDate = new DateTime(1999,12,13)
-                }
-            });
+            new User {
+                UserId = 1,
+                Name = "Nick Morrison",
+                CreateDate = new DateTime(1999,12,13),
+                UpdateDate = new DateTime(1999,12,13)
+            },
+            new User {
+                UserId = 2,
+                Name = "Scott Cassidy",
+                CreateDate = new DateTime(1999,12,13),
+                UpdateDate = new DateTime(1999,12,13)
+            },
+            new User {
+                UserId = 3,
+                Name = "Tony Bidner",
+                CreateDate = new DateTime(1999,12,13),
+                UpdateDate = new DateTime(1999,12,13)
+            },
+            new User {
+                UserId = 4,
+                Name = "Patryk Skwarko",
+                CreateDate = new DateTime(1999,12,13),
+                UpdateDate = new DateTime(1999,12,13)
+            }
+        });
         });
     }
 

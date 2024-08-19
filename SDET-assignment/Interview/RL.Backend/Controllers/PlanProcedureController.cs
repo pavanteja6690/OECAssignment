@@ -36,4 +36,12 @@ public class PlanProcedureController : ControllerBase
 
         return response.ToActionResult();
     }
+
+    [HttpPut("ResetUsersToPlanProcedure")]
+    public async Task<IActionResult> ResetUsersToPlanProcedure([FromBody] ResetUsersToPlanProcedureCommand command, CancellationToken token)
+    {
+        var response = await _mediator.Send(command, token);
+
+        return response.ToActionResult();
+    }
 }

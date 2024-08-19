@@ -2,5 +2,4 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/SDET-assignment/Interview/RL.Backend/Database.db-shm
-/SDET-assignment/Interview/RL.Backend/Database.db-wal
+/.vs
