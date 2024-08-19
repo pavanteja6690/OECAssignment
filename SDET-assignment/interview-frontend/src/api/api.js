@@ -65,3 +65,36 @@ export const getUsers = async () => {
 
     return await response.json();
 };
+
+export const assignUsersToPlanProcedure = async (planId, procedureId, userIds) => {
+    let url = `${api_url}/PlanProcedure/`;
+    let methodtype = 'PUT'
+    if (userIds?.length > 0) {
+        url = url+'AssignUsersToPlanProcedure'
+        methodtype = 'POST'
+    } else url = url+'ResetUsersToPlanProcedure'
+    var command = { planId: planId, procedureId: procedureId, userIds: userIds };
+    const response = await fetch(url, {
+        method: methodtype,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(command),
+    });
+
+    if (!response.ok) throw new Error("Failed to Add User To plan Procedure");
+
+    return true;
+};
+
+export const getPlanProcedureUsers = async (planId) => {
+    const url = `${api_url}/PlanProcedure?$filter=planId eq ${planId}&$expand=planProcedureUsers`;
+    const response = await fetch(url, {
+        method: "GET",
+    });
+
+    if (!response.ok) throw new Error("Failed to get user plan procedures");
+
+    return await response.json();
+};

@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactSelect from "react-select";
+import { assignUsersToPlanProcedure } from "../../../api/api";
 
-const PlanProcedureItem = ({ procedure, users }) => {
+const PlanProcedureItem = ({ procedure, users, planId, planProceduresSelectedUsers }) => {
     const [selectedUsers, setSelectedUsers] = useState(null);
 
-    const handleAssignUserToProcedure = (e) => {
+    useEffect(() => {
+        if (planProceduresSelectedUsers) {
+            setSelectedUsers(planProceduresSelectedUsers);
+        }
+    }, [planProceduresSelectedUsers]);
+
+    const handleAssignUserToProcedure = async (e) => {
         setSelectedUsers(e);
-        // TODO: Remove console.log and add missing logic
-        console.log(e);
+        const userIds = e.length > 0 ? e.map(y => y.value) : [];
+        await assignUsersToPlanProcedure(planId, procedure.procedureId, userIds);
     };
 
     return (
