@@ -9,6 +9,7 @@ Interview/RL.Backend.UnitTests/obj/
 
 Interview/RL.Data/bin/
 Interview/RL.Data/obj/
+Interview/.vs/
 
 # Rider
 .idea/
