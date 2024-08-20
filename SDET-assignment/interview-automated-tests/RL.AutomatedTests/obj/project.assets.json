@@ -5616,19 +5616,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Patryk\\.nuget\\packages\\": {}
+    "C:\\Users\\udayk\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\Misc\\sdet\\SDET-assignment\\interview-automated-tests\\RL.AutomatedTests\\RL.AutomatedTests.csproj",
+      "projectUniqueName": "C:\\Learning\\OECAssignment\\SDET-assignment\\interview-automated-tests\\RL.AutomatedTests\\RL.AutomatedTests.csproj",
       "projectName": "RL.AutomatedTests",
-      "projectPath": "C:\\Code\\Misc\\sdet\\SDET-assignment\\interview-automated-tests\\RL.AutomatedTests\\RL.AutomatedTests.csproj",
-      "packagesPath": "C:\\Users\\Patryk\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\Misc\\sdet\\SDET-assignment\\interview-automated-tests\\RL.AutomatedTests\\obj\\",
+      "projectPath": "C:\\Learning\\OECAssignment\\SDET-assignment\\interview-automated-tests\\RL.AutomatedTests\\RL.AutomatedTests.csproj",
+      "packagesPath": "C:\\Users\\udayk\\.nuget\\packages\\",
+      "outputPath": "C:\\Learning\\OECAssignment\\SDET-assignment\\interview-automated-tests\\RL.AutomatedTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Patryk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\udayk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5636,6 +5636,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5650,7 +5651,9 @@
         ]
       },
       "restoreAuditProperties": {
-        "enableAudit": "default"
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -5713,26 +5716,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }
