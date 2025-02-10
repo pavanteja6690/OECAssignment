@@ -53,6 +53,13 @@ Expected behavior:
 
 - After refreshing the page, the “Select User to Assign” field should display any previously added user.
 
+In addition to the above, implement functionality to:
+
+-  **Remove Users:**
+Users assigned to a procedure should be able to be removed by the user from the procedure.
+- **Remove All Users:**
+Provide functionality to remove all users from a procedure at once.
+
 ## Solution notes
 1. Implement AssignUsersToPlanProcedureCommandHandler in RL.Backend
 2. Hook up endpoint (AssignUsersToPlanProcedure in PlanProcedureController) to the frontend so when a user is selected, they are correctly assigned to that procedure
